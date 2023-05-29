@@ -6,10 +6,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
+import com.e2eTest.automation.utils.ConfigFileReader;
 import com.e2eTest.automation.utils.Setup;
 
 public class LoginPage {
-
+	
+	public ConfigFileReader configFileReader;
+	
 	/*Retrieve Element*/
 	@CacheLookup
 	@FindBy(how = How.ID, using = "Email")
@@ -22,14 +25,15 @@ public class LoginPage {
 	@CacheLookup
 	@FindBy(how = How.XPATH, using = "//button[@type='submit']")
 	public static WebElement btnLogin;
-	
-	public LoginPage() { 
+
+	public LoginPage() {
 		PageFactory.initElements(Setup.getDriver(), this);
-	}
+		configFileReader = new ConfigFileReader();
+		}
 	
 	/*Create method*/
 	public void gotoUrl() {
-		Setup.getDriver().get("https://admin-demo.nopcommerce.com/login?ReturnUrl=%2Fadmin%2F");
+		Setup.getDriver().get(configFileReader.getProperties("home.url"));
 	}
 	
 	public void fillEmail(String mail) {
@@ -38,7 +42,7 @@ public class LoginPage {
 	}
 	
 	public void fillPassword(String keyword) {
-		email.clear();
+		password.clear();
 		password.sendKeys(keyword);
 	}
 	

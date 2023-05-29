@@ -19,7 +19,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 		features = {"src/test/features"},
 		plugin = {"pretty", "html:target/cucumber-report.html", "json:target/cucumber.json"},
-		tags = ("@authentification"),
+		tags = ("@productAttribute"),
 		//glue = {};
 		monochrome = true,
 		snippets = CAMELCASE

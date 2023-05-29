@@ -18,13 +18,13 @@ public class LoginStepDefintion {
 	}
 
 	@When("Je saisis le username {string}")
-	public void jeSaisisLeUsername(String mail) {
-		loginPage.fillEmail(mail);
+	public void jeSaisisLeUsername(String email) {
+		loginPage.fillEmail(email);
 	}
 
 	@When("Je saisis le mot le passe {string}")
-	public void jeSaisisLeMotLePasse(String keyword) {
-		loginPage.fillPassword(keyword);
+	public void jeSaisisLeMotLePasse(String password) {
+		loginPage.fillPassword(password);
 	}
 
 	@When("Je clique sur le bouton LOGIN")

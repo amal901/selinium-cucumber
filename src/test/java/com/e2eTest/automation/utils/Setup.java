@@ -39,10 +39,10 @@ public class Setup {
 			/*System.setProperty("webdriver.chrome.driver", "src/test/resource/drivers/win/chromedriver.exe");
 			ChromeOptions chromeOptions = new ChromeOptions();
 			driver = new ChromeDriver();*/
-			
+			System.setProperty("webdriver.http.factory", "jdk-http-client");
 			ChromeOptions chromeOptions = new ChromeOptions();
 	        WebDriverManager.chromedriver().setup();
-	        driver = new ChromeDriver(chromeOptions);
+	        driver = new ChromeDriver();
 			
 			driver.manage().window().maximize();
 			chromeOptions.addArguments("['start-maximized']");
